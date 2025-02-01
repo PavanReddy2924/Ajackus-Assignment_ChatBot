@@ -3,6 +3,7 @@ import sqlite3
 import os
 from dotenv import load_dotenv
 import google.generativeai as genai
+from flask_asgi import ASGI
 
 app = Flask(__name__)
 
@@ -103,4 +104,5 @@ def ask():
 
 if __name__ == "__main__":
     create_database()
-    app.run(debug=True)
+    asgi_app = ASGI(app)  # Wrap Flask app with ASGI
+    asgi_app.run(debug=True)
