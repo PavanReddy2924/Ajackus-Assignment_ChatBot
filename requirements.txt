@@ -1,3 +1,11 @@
 streamlit
 google-generativeai
 python-dotenv
+fastapi
+uvicorn
+flask
+nltk
+transformers
+pandas
+jinja2
+aiofiles
