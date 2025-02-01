@@ -3,7 +3,6 @@ import sqlite3
 import os
 from dotenv import load_dotenv
 import google.generativeai as genai
-from flask_asgi import ASGI
 
 app = Flask(__name__)
 
@@ -13,7 +12,7 @@ load_dotenv()
 # Configure Google Gemini API Key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Function to create database
+# Function to create the database
 def create_database():
     conn = sqlite3.connect("company.db")
     cursor = conn.cursor()
@@ -104,5 +103,4 @@ def ask():
 
 if __name__ == "__main__":
     create_database()
-    asgi_app = ASGI(app)  # Wrap Flask app with ASGI
-    asgi_app.run(debug=True)
+    app.run(debug=True)  # Use Flask's built-in server
