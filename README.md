@@ -28,4 +28,5 @@ A Python-based chat assistant that interacts with an SQLite database to answer u
 
 ## Setup Instructions
 
-1. Clone the repository:
+1. Clone the repository: git clone https://github.com/PavanReddy2924/Ajackus-Assignment_ChatBot.git
+
