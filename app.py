@@ -2,15 +2,11 @@ from flask import Flask, render_template, request, jsonify
 import sqlite3
 import os
 from dotenv import load_dotenv
-import google.generativeai as genai
 
 app = Flask(__name__)
 
 # Load environment variables
 load_dotenv()
-
-# Configure Google Gemini API Key
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Function to create the database
 def create_database():
@@ -83,12 +79,6 @@ def execute_query(sql_query):
         conn.close()
         return f"An error occurred: {str(e)}"
 
-# Function to load Gemini model and get a response
-def get_gemini_response(question, prompt):
-    model = genai.GenerativeModel('gemini-pro')
-    response = model.generate_content([prompt[0], question])
-    return response.text
-
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -102,5 +92,8 @@ def ask():
     return jsonify({"response": str(result)})
 
 if __name__ == "__main__":
+    # Create the database if not exists
     create_database()
-    app.run(debug=True)  # Use Flask's built-in server
+
+    # Run the app on Render's dynamic port (environment variable PORT)
+    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
