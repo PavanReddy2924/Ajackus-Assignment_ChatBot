@@ -1,11 +1,8 @@
 streamlit
-google-generativeai
+Flask
+sqlite3
 python-dotenv
-fastapi
-uvicorn
-flask
-nltk
-transformers
-pandas
+google-generativeai
+Flask-ASGI
 jinja2
 aiofiles
