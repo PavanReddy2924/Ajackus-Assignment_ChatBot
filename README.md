@@ -6,7 +6,7 @@ A Python-based chat assistant that interacts with an SQLite database to answer u
 
 ## Supported Queries and Responses
 
-1. **User Query:** "Show all employees"
+1. **User Query:** Show all employees
    - **Bot Response:** 
      ```
      [(1, 'Alice', 'Sales', 50000, '2021-01-15'), 
@@ -14,13 +14,13 @@ A Python-based chat assistant that interacts with an SQLite database to answer u
       (3, 'Charlie', 'Marketing', 60000, '2022-03-20')]
      ```
 
-2. **User Query:** "Show employees in Sales"
+2. **User Query:** Show employees in Sales
    - **Bot Response:** 
      ```
      [(1, 'Alice', 'Sales', 50000, '2021-01-15')]
      ```
 
-3. **User Query:** "Find the highest salary"
+3. **User Query:** Find the highest salary
    - **Bot Response:** 
      ```
      ('Bob', 70000)
